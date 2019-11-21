@@ -1,6 +1,6 @@
 package trabalhojava;
 
-public abstract class Account implements InterfaceConta{
+public abstract class Account implements accountInterface{
     private double balance = 0;
     private int accountNumber;
     private static int accountCount = 10000;

@@ -10,8 +10,8 @@ package trabalhojava;
  * @author Usuario
  */
 
-public interface InterfaceConta {
-    boolean pays(double valor);
+public interface accountInterface {
+    boolean deposits(double valor);
     boolean withdraw(double valor);
 //  Cliente getDono();
     int getAccountNumber();

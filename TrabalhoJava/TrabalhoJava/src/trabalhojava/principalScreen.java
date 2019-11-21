@@ -9,12 +9,12 @@ package trabalhojava;
  *
  * @author noh4n
  */
-public class telaPrincipal extends javax.swing.JFrame {
+public class principalScreen extends javax.swing.JFrame {
 
     /**
      * Creates new form telaPrincipal
      */
-    public telaPrincipal() {
+    public principalScreen() {
         initComponents();
     }
 
@@ -35,7 +35,7 @@ public class telaPrincipal extends javax.swing.JFrame {
         botaoAtualizarCliente = new javax.swing.JButton();
         botaoDeletarCliente = new javax.swing.JButton();
         campoBuscaClientes = new javax.swing.JTextField();
-        cbOrganiza = new javax.swing.JComboBox<>();
+        cbOrganiza = new javax.swing.JComboBox<String>();
         labelOrganizar = new javax.swing.JLabel();
         labelBuscaClientes = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -191,7 +191,7 @@ public class telaPrincipal extends javax.swing.JFrame {
 
         botaoDeletarCliente.setText("Deletar");
 
-        cbOrganiza.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nome", "Sobrenome", "Salário" }));
+        cbOrganiza.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nome", "Sobrenome", "Salário" }));
 
         labelOrganizar.setText("Organizar por:");
 
@@ -439,20 +439,21 @@ public class telaPrincipal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(telaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(principalScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(telaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(principalScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(telaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(principalScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(telaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(principalScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new telaPrincipal().setVisible(true);
+                new principalScreen().setVisible(true);
             }
         });
     }
