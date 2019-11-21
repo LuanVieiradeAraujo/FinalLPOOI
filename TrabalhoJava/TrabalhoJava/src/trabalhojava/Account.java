@@ -4,6 +4,7 @@ public abstract class Account implements accountInterface{
     private double balance = 0;
     private int accountNumber;
     private static int accountCount = 10000;
+    private Customer owner;
 
     Account(){
         this.accountNumber = nextAccountNumber();

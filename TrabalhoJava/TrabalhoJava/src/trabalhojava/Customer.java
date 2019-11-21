@@ -17,8 +17,9 @@ public class Customer {
     private String cpf;
     private double salary;
     private Account account;
+    private Customer owner;
     
-    Customer(String newName, String newSurname, String newAddress, String cpf, String rg, double newSalary, Account newAccount){
+    Customer(String newName, String newSurname, String newAddress, String cpf, String rg, double newSalary, Account newAccount, Customer newOwner){
         this.name = newName;
         this.surname = newSurname;
         this.address = newAddress;
@@ -26,8 +27,17 @@ public class Customer {
         this.rg = rg;
         this.salary = newSalary;
         this.account = newAccount;
+        this.owner = newOwner;
     }
 
+    public void setOwner (Customer newOwner){
+        this.owner = newOwner;
+    }
+    
+    public Customer getOwner(){
+        return owner;
+    }
+    
     public String toString(){
         return "\nInfo Cliente\n" + "Primeiro Nome: " +
                 getName() + "\n" + "Sobrenome: " + getSurname() + "\n" + "Endereco:" +

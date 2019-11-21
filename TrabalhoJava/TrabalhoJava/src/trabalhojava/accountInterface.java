@@ -13,7 +13,7 @@ package trabalhojava;
 public interface accountInterface {
     boolean deposits(double valor);
     boolean withdraw(double valor);
-//  Cliente getDono();
+    Customer getOwner();
     int getAccountNumber();
     double getBalance();
     void pays();

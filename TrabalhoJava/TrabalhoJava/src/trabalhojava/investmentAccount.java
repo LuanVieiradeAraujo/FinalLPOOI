@@ -68,4 +68,9 @@ public class investmentAccount extends Account {
             return false;
         }
     }
+
+    @Override
+    public Customer getOwner() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
