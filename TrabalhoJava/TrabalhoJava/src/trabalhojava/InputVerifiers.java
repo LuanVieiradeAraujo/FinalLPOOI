@@ -6,16 +6,18 @@
 package trabalhojava;
 
 import javax.swing.JTextField;
-import javax.swing.JTextPane;
 
 /**
  *
  * @author Usuario
  */
 public class InputVerifiers {
-        public static String HasInput(JTextField textField) {
+    private boolean inputError = false;
+    
+        public String HasInput(JTextField textField) {
             if(isNullOrEmpty(textField.getText())){
                 textField.setText("Digite um valor");
+                inputError = true;
                 return "error";
             }
             else{
@@ -27,5 +29,13 @@ public class InputVerifiers {
             if(str != null && !str.isEmpty())
                 return false;
             return true;
-    }
+        }
+        
+        public boolean hasInputErrors(){
+            return this.inputError;
+        }
+        
+        public void setInputErrors(Boolean val){
+            this.inputError = val;
+        }
 }

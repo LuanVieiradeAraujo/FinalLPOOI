@@ -5,6 +5,10 @@
  */
 package trabalhojava;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+
 
 /**
  *
@@ -28,7 +32,8 @@ public class addCustomerFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        label2 = new java.awt.Label();
+        addCustomerButton = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -51,13 +56,18 @@ public class addCustomerFrame extends javax.swing.JFrame {
         inputSalary = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         label1 = new java.awt.Label();
+        jSeparator2 = new javax.swing.JSeparator();
+        customerInputConfirmation = new java.awt.Label();
+
+        label2.setAlignment(java.awt.Label.CENTER);
+        label2.setText("Adicionar cliente");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Adicionar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        addCustomerButton.setText("Adicionar");
+        addCustomerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                addCustomerButtonActionPerformed(evt);
             }
         });
 
@@ -171,6 +181,9 @@ public class addCustomerFrame extends javax.swing.JFrame {
         label1.setAlignment(java.awt.Label.CENTER);
         label1.setText("Adicionar cliente");
 
+        customerInputConfirmation.setAlignment(java.awt.Label.CENTER);
+        customerInputConfirmation.setText("Aguardando preenchimento");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -181,12 +194,14 @@ public class addCustomerFrame extends javax.swing.JFrame {
                 .addGap(92, 92, 92))
             .addComponent(jSeparator1)
             .addGroup(layout.createSequentialGroup()
-                .addGap(118, 118, 118)
-                .addComponent(jButton1)
-                .addGap(75, 75, 75)
+                .addGap(87, 87, 87)
+                .addComponent(addCustomerButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(95, 95, 95))
             .addComponent(label1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jSeparator2)
+            .addComponent(customerInputConfirmation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -197,12 +212,18 @@ public class addCustomerFrame extends javax.swing.JFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
+                .addComponent(customerInputConfirmation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(addCustomerButton)
                     .addComponent(jButton2))
                 .addContainerGap())
         );
+
+        label1.getAccessibleContext().setAccessibleName("Aguardando preenchimento");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -211,7 +232,7 @@ public class addCustomerFrame extends javax.swing.JFrame {
         super.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void addCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCustomerButtonActionPerformed
     String name = null;
     String surname = null;
     String address = null;
@@ -220,23 +241,42 @@ public class addCustomerFrame extends javax.swing.JFrame {
     String salaryString = null;
     Double salary = null;
     
-    name = InputVerifiers.HasInput(inputName);
-    surname = InputVerifiers.HasInput(inputSurname);
-    address = InputVerifiers.HasInput(inputAddress);
-    rg = InputVerifiers.HasInput(inputRG);
-    CPF = InputVerifiers.HasInput(inputCPF);    
-    salaryString = InputVerifiers.HasInput(inputSalary);           
+    InputVerifiers newCustomerChecker = new InputVerifiers();
+    
+    name = newCustomerChecker.HasInput(inputName);
+    surname = newCustomerChecker.HasInput(inputSurname);
+    address = newCustomerChecker.HasInput(inputAddress);
+    rg = newCustomerChecker.HasInput(inputRG);
+    CPF = newCustomerChecker.HasInput(inputCPF);    
+    salaryString = newCustomerChecker.HasInput(inputSalary);           
        
     try{
         salary = Double.parseDouble(salaryString);
     }
     catch(NumberFormatException e){
         inputSalary.setText("Insira um numero");
+        newCustomerChecker.setInputErrors(true);
     }
     
-    Customer customer = new Customer(name,surname,address,rg,CPF,salary);
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
+    if(newCustomerChecker.hasInputErrors() == false){
+        customerInputConfirmation.setText("Cadastro realizado com sucesso. Aguarde...");
+
+            Customer customer = new Customer(name, surname, address, rg, CPF, salary);
+            
+            Object[] row = {customer.getName(),customer.getSurname(),customer.getAddress(),customer.getRg(),customer.getCpf(),customer.getSalary()};
+            
+            DefaultTableModel model = (DefaultTableModel) principalScreen.tabelaClientes.getModel();
+            
+            model.addRow(row);
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(addCustomerFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            super.dispose();
+    }
+      
+    }//GEN-LAST:event_addCustomerButtonActionPerformed
 
     private void inputSalaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputSalaryActionPerformed
 
@@ -292,14 +332,15 @@ public class addCustomerFrame extends javax.swing.JFrame {
     private javax.swing.JTextPane RG;
     private javax.swing.JTextPane Salary;
     private javax.swing.JTextPane Surname;
+    private javax.swing.JButton addCustomerButton;
     private javax.swing.JTextPane cpf;
+    private java.awt.Label customerInputConfirmation;
     private javax.swing.JTextField inputAddress;
     private javax.swing.JTextField inputCPF;
     private javax.swing.JTextField inputName;
     private javax.swing.JTextField inputRG;
     private javax.swing.JTextField inputSalary;
     private javax.swing.JTextField inputSurname;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -309,6 +350,8 @@ public class addCustomerFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private java.awt.Label label1;
+    private java.awt.Label label2;
     // End of variables declaration//GEN-END:variables
 }
