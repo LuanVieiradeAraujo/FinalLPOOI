@@ -7,28 +7,28 @@ import java.util.ArrayList;
 
 
 public class Bank {
-    private ArrayList<Cliente> arrCustomers = new ArrayList<Cliente>();
+    private ArrayList<Customer> arrCustomers = new ArrayList<Customer>();
     
-    void addClient (Cliente customer) {
-        if(accountExists(customer.getConta().getNConta())){
-            customer.getConta().setNConta(findValidAccount());
+    void addClient (Customer customer) {
+        if(accountExists(customer.getAccount().getNConta())){
+            customer.getAccount().setNConta(findValidAccount());
         }
         arrCustomers.add(customer);
     }
     
     private boolean accountExists(int accountNumber){
-        for(Cliente c : arrCustomers){
-            if(c.getConta().getNConta() == accountNumber) {
+        for(Customer c : arrCustomers){
+            if(c.getAccount().getNConta() == accountNumber) {
                 return true;
             }
         }
         return false;
     }
     
-    Cliente getCustomerPerAccountNum(int accountNum){
-        Cliente customer = null;
-        for(Cliente c : arrCustomers){
-            if(c.getConta().getNConta() == accountNum){
+    Customer getCustomerPerAccountNum(int accountNum){
+        Customer customer = null;
+        for(Customer c : arrCustomers){
+            if(c.getAccount().getNConta() == accountNum){
                 customer = c;
                 break;
             }
@@ -36,8 +36,8 @@ public class Bank {
         return customer;
     }
     
-    void removeCustomer(Cliente cliente){
-        arrCustomers.remove(cliente);
+    void removeCustomer(Customer customer){
+        arrCustomers.remove(customer);
     }
     
     private int findValidAccount(){
@@ -57,11 +57,11 @@ public class Bank {
         return bd.doubleValue();
     }
     
-    Cliente getCustomerAccount(int conta){
+    Customer getCustomerAccount(int conta){
         return arrCustomers.get(conta);
     }
     
-    ArrayList<Cliente> getCustomers(){
+    ArrayList<Customer> getCustomers(){
         return arrCustomers;
     }
 }
