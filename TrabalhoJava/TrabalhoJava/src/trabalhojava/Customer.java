@@ -35,29 +35,28 @@ public class Customer {
                 "Salario: " + getSalary() + "\n" + account;
     }
     
-    
-    Account getAccount() {
-        return account;
+    public String getSurname() {
+        return surname;
     }
     
     public String getName() {
         return name;
     }
 
-    public String getSurname() {
-        return surname;
-    }
-
+    Account getAccount() {
+        return account;
+    }    
+    
     public String getAddress() {
         return address;
     }
 
-    public String getRg() {
-        return rg;
-    }
-
     public String getCpf() {
         return cpf;
+    }
+
+    public String getRg() {
+        return rg;
     }
     
     public double getSalary() {

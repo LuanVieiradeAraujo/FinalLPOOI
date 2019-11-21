@@ -8,36 +8,54 @@ public class investmentAccount extends Account {
     
     private static String accountType = "Investimento";
     
+    @Override
+    public boolean withdraw(double value) {
+        double balance = super.getBalance();
+        if (balance - value >= minimumAmount){
+            super.withdraw(value);
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    @Override
+    public void pays(){
+        double balance = super.getBalance();
+        balance = balance + (balance*0.2);
+        super.setBalance(balance); 
+    }
+    
+    public double getMinimumDeposit() {
+        return minimumDeposit;
+    }
+    
      public String toString(){
         return "Tipo da Conta: Conta " + accountType + "\n" +
                 "Numero da Conta: " + this.getAccountNumber() + "\n" +
                 "Saldo: " + this.getBalance();
     }
-     
-    public String getAccountType(){
-        return accountType;
-    }
-
-    public double getMinimumAmount() {
-        return minimumAmount;
-    }
-
-    public double getMinimumDeposit() {
-        return minimumDeposit;
-    }
 
     public double getInitialDeposit() {
         return initialDeposit;
     }
-
+    
+    public double getMinimumAmount() {
+        return minimumAmount;
+    }
+    
     public void setMinimumAmount(double newMinimumAmount) {
         this.minimumAmount = newMinimumAmount;
+    }
+
+    public String getAccountType(){
+        return accountType;
     }
 
     public void setMinimumDeposit(double newMinimumDeposit) {
         this.minimumDeposit = newMinimumDeposit;
     }
-
+    
     public void setInitialDeposit(double newInitialDeposit) {
         this.initialDeposit = newInitialDeposit;
     }
@@ -49,21 +67,5 @@ public class investmentAccount extends Account {
         } else {
             return false;
         }
-    }
-    
-    public boolean withdraw(double value) {
-        double balance = super.getBalance();
-        if (balance - value >= minimumAmount){
-            super.withdraw(value);
-            return true;
-        } else {
-            return false;
-        }
-    }
-    
-    public void pays(){
-        double balance = super.getBalance();
-        balance = balance + (balance*0.2);
-        super.setBalance(balance); 
     }
 }

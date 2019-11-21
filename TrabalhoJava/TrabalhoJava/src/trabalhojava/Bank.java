@@ -7,14 +7,7 @@ import java.util.ArrayList;
 
 public class Bank {
     private ArrayList<Customer> arrCustomers = new ArrayList<Customer>();
-    
-    void addClient (Customer customer) {
-        if(accountExists(customer.getAccount().getAccountNumber())){
-            customer.getAccount().setAccountNumber(findValidAccount());
-        }
-        arrCustomers.add(customer);
-    }
-    
+        
     private int findValidAccount(){
         int accountNumber;
         do {
@@ -22,14 +15,12 @@ public class Bank {
         } while (accountExists(accountNumber));
         return accountNumber;
     }
-        
-    private boolean accountExists(int accountNumber){
-        for(Customer c : arrCustomers){
-            if(c.getAccount().getAccountNumber() == accountNumber) {
-                return true;
-            }
+            
+    void addClient (Customer customer) {
+        if(accountExists(customer.getAccount().getAccountNumber())){
+            customer.getAccount().setAccountNumber(findValidAccount());
         }
-        return false;
+        arrCustomers.add(customer);
     }
     
     void removeCustomer(Customer customer){
@@ -39,6 +30,26 @@ public class Bank {
     ArrayList<Customer> getCustomers(){
         return arrCustomers;
     }    
+    
+    private boolean accountExists(int accountNumber){
+        for(Customer c : arrCustomers){
+            if(c.getAccount().getAccountNumber() == accountNumber) {
+                return true;
+            }
+        }
+        return false;
+    }   
+    
+    Customer getCustomerPerAccountNum(int accountNum){
+        Customer customer = null;
+        for(Customer c : arrCustomers){
+            if(c.getAccount().getAccountNumber() == accountNum){
+                customer = c;
+                break;
+            }
+        }
+        return customer;
+    }     
     
     Customer getCustomerAccount(int conta){
         return arrCustomers.get(conta);
@@ -51,16 +62,5 @@ public class Bank {
         BigDecimal bd = new BigDecimal(value);
         bd = bd.setScale(places, RoundingMode.HALF_UP);
         return bd.doubleValue();
-    }
-    
-    Customer getCustomerPerAccountNum(int accountNum){
-        Customer customer = null;
-        for(Customer c : arrCustomers){
-            if(c.getAccount().getAccountNumber() == accountNum){
-                customer = c;
-                break;
-            }
-        }
-        return customer;
-    }    
+    }   
 }

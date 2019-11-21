@@ -8,15 +8,24 @@ public abstract class Account implements accountInterface{
     Account(){
         this.accountNumber = nextAccountNumber();
     }
-   
+ 
+    public abstract String getAccountType();
+    
+    public boolean withdraw (double newValue){
+        if (newValue > 0){
+            this.balance = this.balance - newValue;
+            return true;
+        } else {
+            return false;
+        }
+    }    
+    
     public static int nextAccountNumber(){
         return ++accountCount;
     }
     
-    public abstract String getAccountType();
-    
-    public double getBalance(){
-        return balance;
+    public void setAccountNumber(int newAccountNumber){
+        this.accountNumber = newAccountNumber;
     }
     
     public void setBalance(double newBalance){
@@ -27,8 +36,8 @@ public abstract class Account implements accountInterface{
         return accountNumber;
     }
     
-    public void setAccountNumber(int newAccountNumber){
-        this.accountNumber = newAccountNumber;
+    public double getBalance(){
+        return balance;
     }
     
     public abstract void pays();
@@ -46,13 +55,5 @@ public abstract class Account implements accountInterface{
         }
     }
     
-    public boolean withdraw (double newValue){
-        if (newValue > 0){
-            this.balance = this.balance - newValue;
-            return true;
-        } else {
-            return false;
-        }
-    }
 }
 

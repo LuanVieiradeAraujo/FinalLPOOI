@@ -1,4 +1,3 @@
-
 package trabalhojava;
 
 public class currentAccount extends Account{
@@ -6,29 +5,6 @@ public class currentAccount extends Account{
     private double limit;
         
     private static String accountType = "Current";
-    
-    public String getAccountType(){
-        return accountType;
-    }
-    
-    public String toString(){
-        return "Tipo da Conta: Conta " + accountType + "\n" +
-                "Numero da Conta: " + this.getAccountNumber() + "\n" +
-                "Saldo: " + this.getBalance();
-    }
-    
-    public void setInitialDeposit(double newInitialDeposit){
-        this.initialDeposit = newInitialDeposit;
-    }
-    public double getInitialDeposit(){
-        return this.initialDeposit;
-    }
-    public void setLimit(double newLimit){
-        this.limit = newLimit;
-    }
-    public double getLimit(){
-        return this.limit;
-    }
     
     @Override
     public boolean withdraw(double value){
@@ -48,5 +24,31 @@ public class currentAccount extends Account{
         balance = balance + (balance*0.1);
         super.setBalance(balance); 
     }
+    
+    public String toString(){
+        return "Tipo da Conta: Conta " + accountType + "\n" +
+                "Numero da Conta: " + this.getAccountNumber() + "\n" +
+                "Saldo: " + this.getBalance();
+    }
+    
+    public String getAccountType(){
+        return accountType;
+    }
+    
+    public double getInitialDeposit(){
+        return this.initialDeposit;
+    }
+    
+    public void setLimit(double newLimit){
+        this.limit = newLimit;
+    }
 
+    public double getLimit(){
+        return this.limit;
+    }
+    
+    public void setInitialDeposit(double newInitialDeposit){
+        this.initialDeposit = newInitialDeposit;
+    }
+        
 }
