@@ -18,14 +18,13 @@ public class Customer {
     private double salary;
     private Account account;
     
-    Customer(String newName, String newSurname, String newAddress, String cpf, String rg, double newSalary, Account newAccount){
+    Customer(String newName, String newSurname, String newAddress, String cpf, String rg, double newSalary){
         this.name = newName;
         this.surname = newSurname;
         this.address = newAddress;
         this.cpf = cpf;
         this.rg = rg;
         this.salary = newSalary;
-        this.account = newAccount;
     }
     
     public String toString(){
@@ -47,6 +46,10 @@ public class Customer {
         return account;
     }    
     
+    public void setAccount(Account newAccount){
+        this.account = account;
+    }
+    
     public String getAddress() {
         return address;
     }
@@ -61,6 +64,6 @@ public class Customer {
     
     public double getSalary() {
         return salary;
-    } 
+    }
 }
 

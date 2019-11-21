@@ -5,6 +5,7 @@
  */
 package trabalhojava;
 
+
 /**
  *
  * @author Usuario
@@ -31,29 +32,34 @@ public class addCustomerFrame extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextPane2 = new javax.swing.JTextPane();
+        Name = new javax.swing.JTextPane();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextPane3 = new javax.swing.JTextPane();
+        Surname = new javax.swing.JTextPane();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTextPane4 = new javax.swing.JTextPane();
+        Address = new javax.swing.JTextPane();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTextPane5 = new javax.swing.JTextPane();
+        RG = new javax.swing.JTextPane();
         jScrollPane6 = new javax.swing.JScrollPane();
-        jTextPane6 = new javax.swing.JTextPane();
+        cpf = new javax.swing.JTextPane();
         jScrollPane7 = new javax.swing.JScrollPane();
-        jTextPane7 = new javax.swing.JTextPane();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        Salary = new javax.swing.JTextPane();
+        inputName = new javax.swing.JTextField();
+        inputSurname = new javax.swing.JTextField();
+        inputAddress = new javax.swing.JTextField();
+        inputRG = new javax.swing.JTextField();
+        inputCPF = new javax.swing.JTextField();
+        inputSalary = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         label1 = new java.awt.Label();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButton1.setText("Adicionar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Cancelar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -62,31 +68,49 @@ public class addCustomerFrame extends javax.swing.JFrame {
             }
         });
 
-        jTextPane2.setEditable(false);
-        jTextPane2.setText("Nome");
-        jScrollPane2.setViewportView(jTextPane2);
+        Name.setEditable(false);
+        Name.setText("Nome");
+        jScrollPane2.setViewportView(Name);
 
-        jTextPane3.setEditable(false);
-        jTextPane3.setText("Sobrenome");
-        jScrollPane3.setViewportView(jTextPane3);
+        Surname.setEditable(false);
+        Surname.setText("Sobrenome");
+        jScrollPane3.setViewportView(Surname);
 
-        jTextPane4.setEditable(false);
-        jTextPane4.setText("Endereco");
-        jScrollPane4.setViewportView(jTextPane4);
+        Address.setEditable(false);
+        Address.setText("Endereco");
+        jScrollPane4.setViewportView(Address);
 
-        jTextPane5.setEditable(false);
-        jTextPane5.setText("RG");
-        jScrollPane5.setViewportView(jTextPane5);
+        RG.setEditable(false);
+        RG.setText("RG");
+        jScrollPane5.setViewportView(RG);
 
-        jTextPane6.setEditable(false);
-        jTextPane6.setText("CPF");
-        jScrollPane6.setViewportView(jTextPane6);
+        cpf.setEditable(false);
+        cpf.setText("CPF");
+        jScrollPane6.setViewportView(cpf);
 
-        jTextPane7.setEditable(false);
-        jTextPane7.setText("Salario");
-        jScrollPane7.setViewportView(jTextPane7);
+        Salary.setEditable(false);
+        Salary.setText("Salario");
+        jScrollPane7.setViewportView(Salary);
 
-        jTextField4.setToolTipText("");
+        inputName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputNameActionPerformed(evt);
+            }
+        });
+
+        inputSurname.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputSurnameActionPerformed(evt);
+            }
+        });
+
+        inputRG.setToolTipText("");
+
+        inputSalary.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputSalaryActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -103,12 +127,12 @@ public class addCustomerFrame extends javax.swing.JFrame {
                     .addComponent(jScrollPane7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(inputName, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                    .addComponent(inputSurname, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(inputAddress, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(inputRG, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(inputCPF, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(inputSalary, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -123,24 +147,24 @@ public class addCustomerFrame extends javax.swing.JFrame {
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(inputName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(inputSurname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(inputAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(inputRG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(inputCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(8, 8, 8)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(inputSalary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -187,6 +211,46 @@ public class addCustomerFrame extends javax.swing.JFrame {
         super.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    String name = null;
+    String surname = null;
+    String address = null;
+    String rg = null;
+    String CPF = null;
+    String salaryString = null;
+    Double salary = null;
+    
+    name = InputVerifiers.HasInput(inputName);
+    surname = InputVerifiers.HasInput(inputSurname);
+    address = InputVerifiers.HasInput(inputAddress);
+    rg = InputVerifiers.HasInput(inputRG);
+    CPF = InputVerifiers.HasInput(inputCPF);    
+    salaryString = InputVerifiers.HasInput(inputSalary);           
+       
+    try{
+        salary = Double.parseDouble(salaryString);
+    }
+    catch(NumberFormatException e){
+        inputSalary.setText("Insira um numero");
+    }
+    
+    Customer customer = new Customer(name,surname,address,rg,CPF,salary);
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void inputSalaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputSalaryActionPerformed
+
+        
+    }//GEN-LAST:event_inputSalaryActionPerformed
+
+    private void inputSurnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputSurnameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputSurnameActionPerformed
+
+    private void inputNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputNameActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -223,6 +287,18 @@ public class addCustomerFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextPane Address;
+    private javax.swing.JTextPane Name;
+    private javax.swing.JTextPane RG;
+    private javax.swing.JTextPane Salary;
+    private javax.swing.JTextPane Surname;
+    private javax.swing.JTextPane cpf;
+    private javax.swing.JTextField inputAddress;
+    private javax.swing.JTextField inputCPF;
+    private javax.swing.JTextField inputName;
+    private javax.swing.JTextField inputRG;
+    private javax.swing.JTextField inputSalary;
+    private javax.swing.JTextField inputSurname;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel1;
@@ -233,18 +309,6 @@ public class addCustomerFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextPane jTextPane2;
-    private javax.swing.JTextPane jTextPane3;
-    private javax.swing.JTextPane jTextPane4;
-    private javax.swing.JTextPane jTextPane5;
-    private javax.swing.JTextPane jTextPane6;
-    private javax.swing.JTextPane jTextPane7;
     private java.awt.Label label1;
     // End of variables declaration//GEN-END:variables
 }
