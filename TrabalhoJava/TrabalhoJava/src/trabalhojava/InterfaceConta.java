@@ -11,11 +11,11 @@ package trabalhojava;
  */
 
 public interface InterfaceConta {
-        boolean deposita(double valor);
-    boolean saca(double valor);
+    boolean pays(double valor);
+    boolean withdraw(double valor);
 //  Cliente getDono();
-    int getNConta();
-    double getSaldo();
-    void remunera();
+    int getAccountNumber();
+    double getBalance();
+    void pays();
 }
 

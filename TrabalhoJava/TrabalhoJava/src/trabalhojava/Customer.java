@@ -16,9 +16,9 @@ public class Customer {
     private String rg;
     private String cpf;
     private double salary;
-    private Conta account;
+    private Account account;
     
-    Customer(String newName, String newSurname, String newAddress, String cpf, String rg, double newSalary, Conta newAccount){
+    Customer(String newName, String newSurname, String newAddress, String cpf, String rg, double newSalary, Account newAccount){
         this.name = newName;
         this.surname = newSurname;
         this.address = newAddress;
@@ -36,7 +36,7 @@ public class Customer {
     }
     
     
-    Conta getAccount() {
+    Account getAccount() {
         return account;
     }
     
