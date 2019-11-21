@@ -4,10 +4,11 @@ public abstract class Account implements accountInterface{
     private double balance = 0;
     private int accountNumber;
     private static int accountCount = 10000;
-    private Customer owner;
+    Customer owner;
 
-    Account(){
+    Account(Customer owner){
         this.accountNumber = nextAccountNumber();
+        this.owner = owner;
     }
  
     public abstract String getAccountType();
@@ -43,9 +44,9 @@ public abstract class Account implements accountInterface{
     
     public abstract void pays();
     
-//    public Cliente getDono(){
-//        return Cliente;
-//    }
+    public Customer getOwner() {
+        return this.owner;
+    }
        
     public boolean deposits (double value){
         if(value > 0){

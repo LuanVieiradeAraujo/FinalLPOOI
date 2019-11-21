@@ -5,6 +5,10 @@ public class currentAccount extends Account{
     private double limit;
         
     private static String accountType = "Current";
+
+    public currentAccount(Customer owner) {
+        super(owner);
+    }
     
     @Override
     public boolean withdraw(double value){
@@ -49,11 +53,6 @@ public class currentAccount extends Account{
     
     public void setInitialDeposit(double newInitialDeposit){
         this.initialDeposit = newInitialDeposit;
-    }
+    }        
 
-    @Override
-    public Customer getOwner() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-        
 }

@@ -7,6 +7,10 @@ public class investmentAccount extends Account {
     private double initialDeposit;
     
     private static String accountType = "Investimento";
+
+    public investmentAccount(Customer owner) {
+        super(owner);
+    }
     
     @Override
     public boolean withdraw(double value) {
@@ -67,10 +71,5 @@ public class investmentAccount extends Account {
         } else {
             return false;
         }
-    }
-
-    @Override
-    public Customer getOwner() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
