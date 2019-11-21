@@ -64,14 +64,14 @@ public class addCustomerFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        addCustomerButton.setText("Adicionar");
+        addCustomerButton.setText("Add");
         addCustomerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addCustomerButtonActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Cancelar");
+        jButton2.setText("Cancel");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -79,15 +79,15 @@ public class addCustomerFrame extends javax.swing.JFrame {
         });
 
         Name.setEditable(false);
-        Name.setText("Nome");
+        Name.setText("Name");
         jScrollPane2.setViewportView(Name);
 
         Surname.setEditable(false);
-        Surname.setText("Sobrenome");
+        Surname.setText("Surname");
         jScrollPane3.setViewportView(Surname);
 
         Address.setEditable(false);
-        Address.setText("Endereco");
+        Address.setText("Address");
         jScrollPane4.setViewportView(Address);
 
         RG.setEditable(false);
@@ -99,7 +99,8 @@ public class addCustomerFrame extends javax.swing.JFrame {
         jScrollPane6.setViewportView(cpf);
 
         Salary.setEditable(false);
-        Salary.setText("Salario");
+        Salary.setText("Salary");
+        Salary.setToolTipText("");
         jScrollPane7.setViewportView(Salary);
 
         inputName.addActionListener(new java.awt.event.ActionListener() {
@@ -179,10 +180,10 @@ public class addCustomerFrame extends javax.swing.JFrame {
         );
 
         label1.setAlignment(java.awt.Label.CENTER);
-        label1.setText("Adicionar cliente");
+        label1.setText("Add customer");
 
         customerInputConfirmation.setAlignment(java.awt.Label.CENTER);
-        customerInputConfirmation.setText("Aguardando preenchimento");
+        customerInputConfirmation.setText("Awaiting completion");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

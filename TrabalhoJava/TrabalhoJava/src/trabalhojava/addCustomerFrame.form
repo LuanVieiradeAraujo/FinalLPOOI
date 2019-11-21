@@ -75,7 +75,7 @@
   <SubComponents>
     <Component class="javax.swing.JButton" name="addCustomerButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Adicionar"/>
+        <Property name="text" type="java.lang.String" value="Add"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addCustomerButtonActionPerformed"/>
@@ -83,7 +83,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Cancelar"/>
+        <Property name="text" type="java.lang.String" value="Cancel"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
@@ -172,7 +172,7 @@
             <Component class="javax.swing.JTextPane" name="Name">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
-                <Property name="text" type="java.lang.String" value="Nome"/>
+                <Property name="text" type="java.lang.String" value="Name"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -187,7 +187,7 @@
             <Component class="javax.swing.JTextPane" name="Surname">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
-                <Property name="text" type="java.lang.String" value="Sobrenome"/>
+                <Property name="text" type="java.lang.String" value="Surname"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -202,7 +202,7 @@
             <Component class="javax.swing.JTextPane" name="Address">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
-                <Property name="text" type="java.lang.String" value="Endereco"/>
+                <Property name="text" type="java.lang.String" value="Address"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -247,7 +247,8 @@
             <Component class="javax.swing.JTextPane" name="Salary">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
-                <Property name="text" type="java.lang.String" value="Salario"/>
+                <Property name="text" type="java.lang.String" value="Salary"/>
+                <Property name="toolTipText" type="java.lang.String" value=""/>
               </Properties>
             </Component>
           </SubComponents>
@@ -283,7 +284,7 @@
     <Component class="java.awt.Label" name="label1">
       <Properties>
         <Property name="alignment" type="int" value="1"/>
-        <Property name="text" type="java.lang.String" value="Adicionar cliente"/>
+        <Property name="text" type="java.lang.String" value="Add customer"/>
       </Properties>
       <AccessibilityProperties>
         <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Aguardando preenchimento"/>
@@ -294,7 +295,7 @@
     <Component class="java.awt.Label" name="customerInputConfirmation">
       <Properties>
         <Property name="alignment" type="int" value="1"/>
-        <Property name="text" type="java.lang.String" value="Aguardando preenchimento"/>
+        <Property name="text" type="java.lang.String" value="Awaiting completion"/>
       </Properties>
     </Component>
   </SubComponents>

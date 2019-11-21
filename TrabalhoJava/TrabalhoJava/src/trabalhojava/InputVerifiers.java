@@ -16,9 +16,9 @@ public class InputVerifiers {
     
         public String HasInput(JTextField textField) {
             if(isNullOrEmpty(textField.getText())){
-                textField.setText("Digite um valor");
+                textField.setText("Input a value");
                 inputError = true;
-                return "error";
+                return "input error";
             }
             else{
                 return textField.getText();
