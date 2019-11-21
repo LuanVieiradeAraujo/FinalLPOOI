@@ -152,7 +152,7 @@ public class principalScreen extends javax.swing.JFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Nome", "Sobrenome", "RG", "CPF", "Endereço", "Salário"
+                "Name", "Surname", "RG", "CPF", "Address", "Salary"
             }
         ) {
             Class[] types = new Class [] {
@@ -180,20 +180,26 @@ public class principalScreen extends javax.swing.JFrame {
             tabelaClientes.getColumnModel().getColumn(5).setResizable(false);
         }
 
-        botaoIncluirCliente.setText("Incluir");
+        botaoIncluirCliente.setText("Include");
         botaoIncluirCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoIncluirClienteActionPerformed(evt);
             }
         });
 
-        botaoAtualizarCliente.setText("Atualizar");
+        botaoAtualizarCliente.setText("Update");
 
-        botaoDeletarCliente.setText("Deletar");
+        botaoDeletarCliente.setText("Delete");
 
-        cbOrganiza.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nome", "Sobrenome", "Salário" }));
+        cbOrganiza.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Name", "Salary", "Surname" }));
+        cbOrganiza.setSelectedItem(cbOrganiza);
+        cbOrganiza.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbOrganizaActionPerformed(evt);
+            }
+        });
 
-        labelOrganizar.setText("Organizar por:");
+        labelOrganizar.setText("Sort by");
 
         labelBuscaClientes.setText("Buscar:");
 
@@ -208,7 +214,7 @@ public class principalScreen extends javax.swing.JFrame {
                 .addComponent(botaoAtualizarCliente)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botaoDeletarCliente)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 248, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 330, Short.MAX_VALUE)
                 .addComponent(labelOrganizar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cbOrganiza, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -232,7 +238,7 @@ public class principalScreen extends javax.swing.JFrame {
                     .addComponent(labelBuscaClientes)))
         );
 
-        jTabbedPane1.addTab("Clientes", jPanel1);
+        jTabbedPane1.addTab("Customers", jPanel1);
 
         tabelaContas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -338,7 +344,7 @@ public class principalScreen extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Numero da Conta", "Nome", "Saldo", "Tipo de Conta"
+                "Account Number", "Name", "Balance", "Type"
             }
         ) {
             Class[] types = new Class [] {
@@ -364,11 +370,11 @@ public class principalScreen extends javax.swing.JFrame {
             tabelaContas.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        botaoNovaConta.setText("Nova Conta");
+        botaoNovaConta.setText("New Account");
 
-        botaoOperarConta.setText("Operar Conta");
+        botaoOperarConta.setText("Operate Account");
 
-        labelBuscaContas.setText("Buscar:");
+        labelBuscaContas.setText("Search");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -396,7 +402,7 @@ public class principalScreen extends javax.swing.JFrame {
                     .addComponent(botaoOperarConta)))
         );
 
-        jTabbedPane1.addTab("Contas", jPanel2);
+        jTabbedPane1.addTab("Accounts", jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -421,6 +427,10 @@ public class principalScreen extends javax.swing.JFrame {
     private void botaoIncluirClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoIncluirClienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_botaoIncluirClienteActionPerformed
+
+    private void cbOrganizaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbOrganizaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbOrganizaActionPerformed
 
     /**
      * @param args the command line arguments

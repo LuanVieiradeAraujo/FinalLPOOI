@@ -48,8 +48,8 @@
         <Container class="javax.swing.JPanel" name="jPanel1">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Clientes">
-                <Property name="tabTitle" type="java.lang.String" value="Clientes"/>
+              <JTabbedPaneConstraints tabName="Customers">
+                <Property name="tabTitle" type="java.lang.String" value="Customers"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -64,7 +64,7 @@
                       <Component id="botaoAtualizarCliente" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="botaoDeletarCliente" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="248" max="32767" attributes="0"/>
+                      <EmptySpace pref="330" max="32767" attributes="0"/>
                       <Component id="labelOrganizar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="cbOrganiza" min="-2" pref="100" max="-2" attributes="0"/>
@@ -105,12 +105,12 @@
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="6" rowCount="100">
-                        <Column editable="false" title="Nome" type="java.lang.String"/>
-                        <Column editable="false" title="Sobrenome" type="java.lang.String"/>
+                        <Column editable="false" title="Name" type="java.lang.String"/>
+                        <Column editable="false" title="Surname" type="java.lang.String"/>
                         <Column editable="false" title="RG" type="java.lang.String"/>
                         <Column editable="false" title="CPF" type="java.lang.String"/>
-                        <Column editable="false" title="Endere&#xe7;o" type="java.lang.String"/>
-                        <Column editable="false" title="Sal&#xe1;rio" type="java.lang.Double"/>
+                        <Column editable="false" title="Address" type="java.lang.String"/>
+                        <Column editable="false" title="Salary" type="java.lang.Double"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -156,7 +156,7 @@
             </Container>
             <Component class="javax.swing.JButton" name="botaoIncluirCliente">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Incluir"/>
+                <Property name="text" type="java.lang.String" value="Include"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoIncluirClienteActionPerformed"/>
@@ -164,12 +164,12 @@
             </Component>
             <Component class="javax.swing.JButton" name="botaoAtualizarCliente">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Atualizar"/>
+                <Property name="text" type="java.lang.String" value="Update"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="botaoDeletarCliente">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Deletar"/>
+                <Property name="text" type="java.lang.String" value="Delete"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="campoBuscaClientes">
@@ -178,19 +178,25 @@
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="3">
-                    <StringItem index="0" value="Nome"/>
-                    <StringItem index="1" value="Sobrenome"/>
-                    <StringItem index="2" value="Sal&#xe1;rio"/>
+                    <StringItem index="0" value="Name"/>
+                    <StringItem index="1" value="Salary"/>
+                    <StringItem index="2" value="Surname"/>
                   </StringArray>
                 </Property>
+                <Property name="selectedItem" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection component="cbOrganiza" type="bean"/>
+                </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbOrganizaActionPerformed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="labelOrganizar">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Organizar por:"/>
+                <Property name="text" type="java.lang.String" value="Sort by"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="labelBuscaClientes">
@@ -203,8 +209,8 @@
         <Container class="javax.swing.JPanel" name="jPanel2">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Contas">
-                <Property name="tabTitle" type="java.lang.String" value="Contas"/>
+              <JTabbedPaneConstraints tabName="Accounts">
+                <Property name="tabTitle" type="java.lang.String" value="Accounts"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -251,10 +257,10 @@
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="4" rowCount="100">
-                        <Column editable="false" title="Numero da Conta" type="java.lang.Integer"/>
-                        <Column editable="false" title="Nome" type="java.lang.String"/>
-                        <Column editable="false" title="Saldo" type="java.lang.Double"/>
-                        <Column editable="false" title="Tipo de Conta" type="java.lang.String"/>
+                        <Column editable="false" title="Account Number" type="java.lang.Integer"/>
+                        <Column editable="false" title="Name" type="java.lang.String"/>
+                        <Column editable="false" title="Balance" type="java.lang.Double"/>
+                        <Column editable="false" title="Type" type="java.lang.String"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -290,19 +296,19 @@
             </Container>
             <Component class="javax.swing.JButton" name="botaoNovaConta">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Nova Conta"/>
+                <Property name="text" type="java.lang.String" value="New Account"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="botaoOperarConta">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Operar Conta"/>
+                <Property name="text" type="java.lang.String" value="Operate Account"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="campoBuscaContas">
             </Component>
             <Component class="javax.swing.JLabel" name="labelBuscaContas">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Buscar:"/>
+                <Property name="text" type="java.lang.String" value="Search"/>
               </Properties>
             </Component>
           </SubComponents>
