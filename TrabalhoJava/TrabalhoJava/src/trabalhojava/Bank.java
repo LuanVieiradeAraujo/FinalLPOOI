@@ -4,11 +4,13 @@ package trabalhojava;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 public class Bank {
-    private ArrayList<Customer> arrCustomers = new ArrayList<Customer>();
+    static DefaultTableModel customerTable = (DefaultTableModel) principalScreen.tabelaClientes.getModel();
+    static private ArrayList<Customer> arrCustomers = new ArrayList<Customer>();
         
-    private int findValidAccount(){
+    static private int findValidAccount(){
         int accountNumber;
         do {
             accountNumber = Account.nextAccountNumber();
@@ -16,22 +18,51 @@ public class Bank {
         return accountNumber;
     }
             
-    void addClient (Customer customer) {
-        if(accountExists(customer.getAccount().getAccountNumber())){
-            customer.getAccount().setAccountNumber(findValidAccount());
-        }
+    static void addCustomer (Customer customer) {
         arrCustomers.add(customer);
+        Object[] row = {customer.getName(),customer.getSurname(),customer.getAddress(),customer.getRg(),customer.getCpf(),customer.getSalary()};
+        customerTable.addRow(row);     
     }
     
-    void removeCustomer(Customer customer){
-        arrCustomers.remove(customer);
+    static void removeCustomer(){
+        
+        int column = 0;
+        int row = principalScreen.tabelaClientes.getSelectedRow();
+        
+        String value = customerTable.getValueAt(row, column).toString();
+        
+        int r = 0;
+        boolean found = false;
+        
+        do{
+            arrCustomers.get(r).getName();
+        
+        }while(found == false);
+        
+        // arrCustomers.remove(customer);
+        // Terminar remocao de cliente
+        
+        
+        int numRows = principalScreen.tabelaClientes.getSelectedRows().length;
+        for(int i=0; i<numRows ; i++ ) {
+            customerTable.removeRow(principalScreen.tabelaClientes.getSelectedRow());
+        }
+    }
+    
+    void editCustomer(Customer customer){
+        int column = 0;
+        int row = principalScreen.tabelaClientes.getSelectedRow();
+        
+        String value = customerTable.getValueAt(0, column).toString();
+        
+        // terminar edicao de cliente
     }
 
     ArrayList<Customer> getCustomers(){
         return arrCustomers;
     }    
     
-    private boolean accountExists(int accountNumber){
+    static private boolean accountExists(int accountNumber){
         for(Customer c : arrCustomers){
             if(c.getAccount().getAccountNumber() == accountNumber) {
                 return true;

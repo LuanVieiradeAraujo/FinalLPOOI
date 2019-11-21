@@ -264,13 +264,10 @@ public class addCustomerFrame extends javax.swing.JFrame {
 
             Customer customer = new Customer(name, surname, address, rg, CPF, salary);
             
-            Object[] row = {customer.getName(),customer.getSurname(),customer.getAddress(),customer.getRg(),customer.getCpf(),customer.getSalary()};
+            Bank.addCustomer(customer);
             
-            DefaultTableModel model = (DefaultTableModel) principalScreen.tabelaClientes.getModel();
-            
-            model.addRow(row);
         try {
-            Thread.sleep(3000);
+            Thread.sleep(1000);
         } catch (InterruptedException ex) {
             Logger.getLogger(addCustomerFrame.class.getName()).log(Level.SEVERE, null, ex);
         }

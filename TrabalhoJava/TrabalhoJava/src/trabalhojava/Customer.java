@@ -65,5 +65,6 @@ public class Customer {
     public double getSalary() {
         return salary;
     }
+    
 }
 
