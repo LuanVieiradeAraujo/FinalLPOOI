@@ -237,6 +237,11 @@ public class principalScreen extends javax.swing.JFrame {
         });
 
         botaoAtualizarCliente.setText("Update");
+        botaoAtualizarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoAtualizarClienteActionPerformed(evt);
+            }
+        });
 
         botaoDeletarCliente.setText("Delete");
         botaoDeletarCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -492,6 +497,12 @@ public class principalScreen extends javax.swing.JFrame {
     private void botaoDeletarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoDeletarClienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_botaoDeletarClienteActionPerformed
+
+    private void botaoAtualizarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAtualizarClienteActionPerformed
+        editCustomerFrame editCustomer = new editCustomerFrame();
+        editCustomer.setVisible(true);
+        
+    }//GEN-LAST:event_botaoAtualizarClienteActionPerformed
 
     /**
      * @param args the command line arguments
