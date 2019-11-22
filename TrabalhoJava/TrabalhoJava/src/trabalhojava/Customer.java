@@ -34,6 +34,15 @@ public class Customer {
                 "Salario: " + getSalary() + "\n" + account;
     }
     
+    public void print(){
+        System.out.println("Name: " + this.getName() + "\n" +
+                "Surname: " + this.getSurname() + "\n" +
+                "Address: " + this.getAddress() + "\n" +
+                "RG: " + this.getRg() + "\n" +
+                "CPF: " + this.getCpf() + "\n" +
+                "Salario" + this.getSalary() + "\n");
+    }
+    
     public String getSurname() {
         return surname;
     }

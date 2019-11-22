@@ -9,27 +9,32 @@ import javax.swing.table.DefaultTableModel;
 public class Bank {
 
     static private ArrayList<Customer> arrCustomers = new ArrayList<>();
-        
-    static private int findValidAccount(){
-        int accountNumber;
-        do {
-            accountNumber = Account.nextAccountNumber();
-        } while (accountExists(accountNumber));
-        return accountNumber;
-    }
-            
+    static DefaultTableModel customerTable = (DefaultTableModel) principalScreen.tabelaClientes.getModel();
+    
     static void addCustomer (Customer customer) {
+        customer.print();
+        
         arrCustomers.add(customer);
         
-        DefaultTableModel customerTable = (DefaultTableModel) principalScreen.tabelaClientes.getModel();
-        Object[] row = {customer.getName(),customer.getSurname(),customer.getAddress(),customer.getRg(),customer.getCpf(),customer.getSalary()};
+        Object[] row = {customer.getName(),customer.getSurname(),customer.getAddress(),customer.getCpf(),customer.getRg(),customer.getSalary()};
         customerTable.addRow(row);
-        
     }
     
-    static void removeCustomer(){
- 
-    }
+    static void removeCustomer(Customer customer){
+        
+            customer.print();
+
+            int index = arrCustomers.indexOf(customer);
+            if(index == -1)
+                System.out.println("ArrayList does not contain Customer");
+            else
+                arrCustomers.remove(customer);
+            
+            int numRows = principalScreen.tabelaClientes.getSelectedRows().length;
+            for(int i=0; i<numRows ; i++ ) {
+                customerTable.removeRow(principalScreen.tabelaClientes.getSelectedRow());
+            }
+        }
     
     void editCustomer(Customer customer){
 

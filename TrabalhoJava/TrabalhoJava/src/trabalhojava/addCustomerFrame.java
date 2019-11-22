@@ -262,7 +262,7 @@ public class addCustomerFrame extends javax.swing.JFrame {
     if(newCustomerChecker.hasInputErrors() == false){
         customerInputConfirmation.setText("Registration successfully completed. Wait...");
 
-            Customer customer = new Customer(name, surname, address, rg, CPF, salary);
+            Customer customer = new Customer(name, surname, address, CPF, rg, salary);
             
             Bank.addCustomer(customer);
             

@@ -209,7 +209,7 @@ public class principalScreen extends javax.swing.JFrame {
             new Object [][] {
             },
             new String [] {
-                "Name", "Surname", "RG", "CPF", "Address", "Salary"
+                "Name", "Surname", "Address", "RG", "CPF", "Salary"
             }
         ) {
             Class[] types = new Class [] {
@@ -495,7 +495,26 @@ public class principalScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoIncluirClienteActionPerformed
 
     private void botaoDeletarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoDeletarClienteActionPerformed
-        // Bank.removeCustomer();
+        DefaultTableModel customerTable = (DefaultTableModel) principalScreen.tabelaClientes.getModel();
+            
+        int row = principalScreen.tabelaClientes.getSelectedRow();
+
+        System.out.println(row);
+        
+        if(row != -1){
+            String name = customerTable.getValueAt(row, 0).toString();
+            String surname = customerTable.getValueAt(row, 1).toString();
+            String address = customerTable.getValueAt(row, 2).toString();
+            String cpf = customerTable.getValueAt(row, 3).toString();
+            String rg = customerTable.getValueAt(row, 4).toString();
+            String salary = customerTable.getValueAt(row, 5).toString();
+            
+            Double DoubleSalary = Double.parseDouble(salary);
+        
+            Customer customer = new Customer(name, surname, address, cpf, rg, DoubleSalary);
+        
+            Bank.removeCustomer(customer);
+        }
     }//GEN-LAST:event_botaoDeletarClienteActionPerformed
 
     private void botaoAtualizarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAtualizarClienteActionPerformed
