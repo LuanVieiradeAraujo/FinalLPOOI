@@ -4,7 +4,7 @@ package trabalhojava;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
-import java.util.Iterator;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class Bank {
@@ -22,9 +22,14 @@ public class Bank {
     }
     
     static void removeCustomer(String rg){
+        
+        JOptionPane.showConfirmDialog(null, 
+                "Este cliente e todas as contas respectivas serao apagadas", "Ok!", JOptionPane.DEFAULT_OPTION);
+        
         for(Customer customer : arrCustomers){
             if(customer.getRg().equals(rg)){
                 arrCustomers.remove(customer);
+                break;
             }
         }
         int numRows = principalScreen.tabelaClientes.getSelectedRows().length;

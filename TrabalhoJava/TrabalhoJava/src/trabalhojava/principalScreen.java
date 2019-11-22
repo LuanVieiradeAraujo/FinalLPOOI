@@ -5,8 +5,12 @@
  */
 package trabalhojava;
 
+import java.util.Comparator;
 import javax.swing.JDialog;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -53,10 +57,8 @@ public class principalScreen extends javax.swing.JFrame {
         botaoIncluirCliente = new javax.swing.JButton();
         botaoAtualizarCliente = new javax.swing.JButton();
         botaoDeletarCliente = new javax.swing.JButton();
-        campoBuscaClientes = new javax.swing.JTextField();
-        cbOrganiza = new javax.swing.JComboBox<String>();
+        sortSelector = new javax.swing.JComboBox<String>();
         labelOrganizar = new javax.swing.JLabel();
-        labelBuscaClientes = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabelaContas = new javax.swing.JTable();
@@ -229,7 +231,7 @@ public class principalScreen extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tabelaClientes);
 
-        botaoIncluirCliente.setText("Include");
+        botaoIncluirCliente.setText("Create");
         botaoIncluirCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoIncluirClienteActionPerformed(evt);
@@ -250,17 +252,15 @@ public class principalScreen extends javax.swing.JFrame {
             }
         });
 
-        cbOrganiza.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Name", "Salary", "Surname" }));
-        cbOrganiza.setSelectedItem(cbOrganiza);
-        cbOrganiza.addActionListener(new java.awt.event.ActionListener() {
+        sortSelector.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Name", "Salary", "Surname" }));
+        sortSelector.setSelectedItem(sortSelector);
+        sortSelector.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbOrganizaActionPerformed(evt);
+                sortSelectorActionPerformed(evt);
             }
         });
 
         labelOrganizar.setText("Sort by");
-
-        labelBuscaClientes.setText("Buscar:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -272,15 +272,12 @@ public class principalScreen extends javax.swing.JFrame {
                 .addComponent(botaoAtualizarCliente)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(botaoDeletarCliente)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 322, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(labelOrganizar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cbOrganiza, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(labelBuscaClientes)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(campoBuscaClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(sortSelector, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 886, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -288,10 +285,8 @@ public class principalScreen extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campoBuscaClientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbOrganiza, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sortSelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelOrganizar)
-                    .addComponent(labelBuscaClientes)
                     .addComponent(botaoIncluirCliente)
                     .addComponent(botaoAtualizarCliente)
                     .addComponent(botaoDeletarCliente)))
@@ -483,9 +478,31 @@ public class principalScreen extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cbOrganizaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbOrganizaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbOrganizaActionPerformed
+    private void sortSelectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortSelectorActionPerformed
+                
+        String value = sortSelector.getSelectedItem().toString();
+        int sortCriteria = 0;
+        
+        switch (value){
+            case "Name":
+               sortCriteria = 0;
+               break;
+            case "Salary":
+               sortCriteria = 5;
+               break;
+            case "Surname":
+               sortCriteria = 1;
+               break;
+            default:
+                sortCriteria = 0;
+        }
+        
+        DefaultTableModel customerTable = (DefaultTableModel) tabelaClientes.getModel();
+        sortAllRows sorter = new sortAllRows();
+        sorter.sortAllRowsBy(customerTable, sortCriteria,true);
+        
+    }//GEN-LAST:event_sortSelectorActionPerformed
+                                         
 
     private void botaoIncluirClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoIncluirClienteActionPerformed
 
@@ -577,9 +594,7 @@ public class principalScreen extends javax.swing.JFrame {
     private javax.swing.JButton botaoIncluirCliente;
     private javax.swing.JButton botaoNovaConta;
     private javax.swing.JButton botaoOperarConta;
-    private javax.swing.JTextField campoBuscaClientes;
     private javax.swing.JTextField campoBuscaContas;
-    private javax.swing.JComboBox<String> cbOrganiza;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JDialog jDialog2;
     private javax.swing.JDialog jDialog3;
@@ -599,11 +614,11 @@ public class principalScreen extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JLabel labelBuscaClientes;
     private javax.swing.JLabel labelBuscaContas;
     private javax.swing.JLabel labelOrganizar;
     private java.awt.PopupMenu popupMenu1;
     private java.awt.PopupMenu popupMenu2;
+    private javax.swing.JComboBox<String> sortSelector;
     public static javax.swing.JTable tabelaClientes;
     private javax.swing.JTable tabelaContas;
     // End of variables declaration//GEN-END:variables
