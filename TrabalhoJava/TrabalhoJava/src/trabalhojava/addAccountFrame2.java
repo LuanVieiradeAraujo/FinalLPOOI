@@ -153,8 +153,8 @@ public class addAccountFrame2 extends javax.swing.JFrame {
 
                 currentAccount account = new currentAccount(customer);
                 account.setLimit(limit);
-                account.setInitialDeposit(deposit);
-
+                account.deposits(deposit);
+                account.mount();
 
             try {
                 Thread.sleep(1000);
@@ -174,7 +174,7 @@ public class addAccountFrame2 extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        super.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

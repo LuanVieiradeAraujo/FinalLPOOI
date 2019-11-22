@@ -280,8 +280,8 @@ public class editCustomerFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JTextField addressEdit;
-    public javax.swing.JTextField cpfEdit;
+    private javax.swing.JTextField addressEdit;
+    private javax.swing.JTextField cpfEdit;
     private javax.swing.JTextField cpfLabel;
     private java.awt.Label customerEditConfirmation;
     private javax.swing.JButton jButton1;
@@ -295,11 +295,11 @@ public class editCustomerFrame extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextPane jTextPane6;
     private java.awt.Label label1;
-    public javax.swing.JTextField nameEdit;
-    public javax.swing.JTextField rgEdit;
-    public javax.swing.JTextField salaryEdit;
+    private javax.swing.JTextField nameEdit;
+    private javax.swing.JTextField rgEdit;
+    private javax.swing.JTextField salaryEdit;
     private javax.swing.JTextField salaryLabel;
-    public javax.swing.JTextField surnameEdit;
+    private javax.swing.JTextField surnameEdit;
     private javax.swing.JTextField surnameLabel;
     // End of variables declaration//GEN-END:variables
 }

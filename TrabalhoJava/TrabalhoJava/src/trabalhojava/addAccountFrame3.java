@@ -180,9 +180,11 @@ public class addAccountFrame3 extends javax.swing.JFrame {
 
             
             investmentAccount account = new investmentAccount(customer);
-            account.setInitialDeposit(depositoInicial);
+            account.deposits(depositoInicial);
             account.setMinimumAmount( montanteMin );
             account.setMinimumDeposit( depositoMin );
+            
+                account.mount();
             
             try {
                 Thread.sleep(1000);

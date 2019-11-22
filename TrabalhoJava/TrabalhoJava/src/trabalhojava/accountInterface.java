@@ -10,12 +10,4 @@ package trabalhojava;
  * @author Usuario
  */
 
-public interface accountInterface {
-    boolean deposits(double valor);
-    boolean withdraw(double valor);
-    Customer getOwner();
-    int getAccountNumber();
-    double getBalance();
-    void pays();
-}
 

@@ -51,9 +51,6 @@ public class currentAccount extends Account{
         return this.limit;
     }
     
-    public void setInitialDeposit(double newInitialDeposit){
-        this.initialDeposit = newInitialDeposit;
-        this.deposits(this.initialDeposit);
-    }        
+   
 
 }

@@ -11,11 +11,17 @@ public abstract class Account implements accountInterface{
     Account(Customer owner){
         this.accountNumber = nextAccountNumber();
         this.owner = owner;
-        DefaultTableModel accountTable = (DefaultTableModel) principalScreen.tabelaContas.getModel();
-        Object[] row = {this.getAccountNumber(),this.getOwner(),this.getBalance(),this.getAccountType()};
-        accountTable.addRow(row);
+        
     }
  
+    public void mount() {
+        DefaultTableModel accountTable = (DefaultTableModel) principalScreen.tabelaContas.getModel();
+        Object[] row = {this.getAccountNumber(),this.getOwner().getName(),this.getBalance(),this.getAccountType()};
+        
+        accountTable.addRow(row);
+        
+    }
+    
     public abstract String getAccountType();
     
     public boolean withdraw (double newValue){
@@ -61,6 +67,7 @@ public abstract class Account implements accountInterface{
             return false;
         }
     }
+       
     
 }
 
