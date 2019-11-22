@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
 public class Bank {
-    static DefaultTableModel customerTable = (DefaultTableModel) principalScreen.tabelaClientes.getModel();
-    static private ArrayList<Customer> arrCustomers = new ArrayList<Customer>();
+
+    static private ArrayList<Customer> arrCustomers = new ArrayList<>();
         
     static private int findValidAccount(){
         int accountNumber;
@@ -20,42 +20,19 @@ public class Bank {
             
     static void addCustomer (Customer customer) {
         arrCustomers.add(customer);
+        
+        DefaultTableModel customerTable = (DefaultTableModel) principalScreen.tabelaClientes.getModel();
         Object[] row = {customer.getName(),customer.getSurname(),customer.getAddress(),customer.getRg(),customer.getCpf(),customer.getSalary()};
-        customerTable.addRow(row);     
+        customerTable.addRow(row);
+        
     }
     
     static void removeCustomer(){
-        
-        int column = 0;
-        int row = principalScreen.tabelaClientes.getSelectedRow();
-        
-        String value = customerTable.getValueAt(row, column).toString();
-        
-        int r = 0;
-        boolean found = false;
-        
-        do{
-            arrCustomers.get(r).getName();
-        
-        }while(found == false);
-        
-        // arrCustomers.remove(customer);
-        // Terminar remocao de cliente
-        
-        
-        int numRows = principalScreen.tabelaClientes.getSelectedRows().length;
-        for(int i=0; i<numRows ; i++ ) {
-            customerTable.removeRow(principalScreen.tabelaClientes.getSelectedRow());
-        }
+ 
     }
     
     void editCustomer(Customer customer){
-        int column = 0;
-        int row = principalScreen.tabelaClientes.getSelectedRow();
-        
-        String value = customerTable.getValueAt(0, column).toString();
-        
-        // terminar edicao de cliente
+
     }
 
     ArrayList<Customer> getCustomers(){
