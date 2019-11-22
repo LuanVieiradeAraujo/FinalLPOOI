@@ -6,8 +6,10 @@
 package trabalhojava;
 
 import java.util.Comparator;
+import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
@@ -54,9 +56,7 @@ public class principalScreen extends javax.swing.JFrame {
         botaoIncluirCliente = new javax.swing.JButton();
         botaoAtualizarCliente = new javax.swing.JButton();
         botaoDeletarCliente = new javax.swing.JButton();
-        sortSelector = new javax.swing.JComboBox<String>();
-        campoBuscaClientes = new javax.swing.JTextField();
-        cbOrganiza = new javax.swing.JComboBox<>();
+        sortSelector = new javax.swing.JComboBox<>();
         labelOrganizar = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -251,12 +251,9 @@ public class principalScreen extends javax.swing.JFrame {
             }
         });
 
-        sortSelector.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Name", "Salary", "Surname" }));
+        sortSelector.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Name", "Salary", "Surname" }));
         sortSelector.setSelectedItem(sortSelector);
         sortSelector.addActionListener(new java.awt.event.ActionListener() {
-        cbOrganiza.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Name", "Salary", "Surname" }));
-        cbOrganiza.setSelectedItem(cbOrganiza);
-        cbOrganiza.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sortSelectorActionPerformed(evt);
             }
@@ -298,106 +295,7 @@ public class principalScreen extends javax.swing.JFrame {
 
         tabelaContas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Account Number", "Name", "Balance", "Type"
@@ -625,12 +523,7 @@ public class principalScreen extends javax.swing.JFrame {
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-
-    private javax.swing.JTabbedPane jTabbedPane1;
-
     public static javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JLabel labelBuscaClientes;
-
     private javax.swing.JLabel labelBuscaContas;
     private javax.swing.JLabel labelOrganizar;
     private java.awt.PopupMenu popupMenu1;

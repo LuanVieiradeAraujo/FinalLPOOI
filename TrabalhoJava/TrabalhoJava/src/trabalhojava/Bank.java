@@ -6,6 +6,7 @@ import java.math.RoundingMode;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import static trabalhojava.addAccountFrame2.customer;
 
 public class Bank {
 
@@ -71,7 +72,19 @@ public class Bank {
         
     }
 
-    ArrayList<Customer> getCustomers(){
+    static Customer findCustomer(String customerName) {
+        ArrayList<Customer> customers = Bank.getCustomers();
+        for (int linha = 0; linha < customers.size(); linha++) {
+            customer = customers.get(linha);
+            if (customer.getName().equals(customerName)) {
+                return customer;
+            }
+        }
+        return null;
+    }
+    
+    
+    static ArrayList<Customer> getCustomers(){
         return arrCustomers;
     }    
     

@@ -62,14 +62,6 @@ public class investmentAccount extends Account {
     
     public void setInitialDeposit(double newInitialDeposit) {
         this.initialDeposit = newInitialDeposit;
-    }
-    
-    public boolean deposit(double value){
-        if (value >= minimumDeposit){
-            super.deposits(value);
-            return true;
-        } else {
-            return false;
-        }
+        this.deposits(this.initialDeposit);
     }
 }

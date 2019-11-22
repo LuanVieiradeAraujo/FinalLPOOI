@@ -273,16 +273,13 @@
                       <Component id="botaoAtualizarCliente" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="botaoDeletarCliente" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="322" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="labelOrganizar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="sortSelector" min="-2" pref="100" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="cbOrganiza" min="-2" pref="100" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="labelBuscaClientes" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="campoBuscaClientes" min="-2" pref="150" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jScrollPane1" alignment="1" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" alignment="1" pref="886" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -291,10 +288,8 @@
                       <Component id="jScrollPane1" min="-2" pref="370" max="-2" attributes="0"/>
                       <EmptySpace pref="27" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="campoBuscaClientes" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="cbOrganiza" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="sortSelector" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="labelOrganizar" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="labelBuscaClientes" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="botaoIncluirCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="botaoAtualizarCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="botaoDeletarCliente" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -314,7 +309,7 @@
                 <Component class="javax.swing.JTable" name="tabelaClientes">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="new javax.swing.table.DefaultTableModel(&#xa;    new Object [][] {&#xa;    },&#xa;    new String [] {&#xa;        &quot;Name&quot;, &quot;Surname&quot;, &quot;RG&quot;, &quot;CPF&quot;, &quot;Address&quot;, &quot;Salary&quot;&#xa;    }&#xa;) {&#xa;    Class[] types = new Class [] {&#xa;        java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class&#xa;    };&#xa;    boolean[] canEdit = new boolean [] {&#xa;        false, false, false, false, false, false&#xa;    };&#xa;&#xa;    public Class getColumnClass(int columnIndex) {&#xa;        return types [columnIndex];&#xa;    }&#xa;&#xa;    public boolean isCellEditable(int rowIndex, int columnIndex) {&#xa;        return canEdit [columnIndex];&#xa;    }&#xa;}" type="code"/>
+                      <Connection code="new javax.swing.table.DefaultTableModel(&#xa;    new Object [][] {&#xa;    },&#xa;    new String [] {&#xa;        &quot;Name&quot;, &quot;Surname&quot;, &quot;Address&quot;, &quot;RG&quot;, &quot;CPF&quot;, &quot;Salary&quot;&#xa;    }&#xa;) {&#xa;    Class[] types = new Class [] {&#xa;        java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class&#xa;    };&#xa;    boolean[] canEdit = new boolean [] {&#xa;        false, false, false, false, false, false&#xa;    };&#xa;&#xa;    public Class getColumnClass(int columnIndex) {&#xa;        return types [columnIndex];&#xa;    }&#xa;&#xa;    public boolean isCellEditable(int rowIndex, int columnIndex) {&#xa;        return canEdit [columnIndex];&#xa;    }&#xa;}" type="code"/>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0"/>
@@ -331,7 +326,7 @@
             </Container>
             <Component class="javax.swing.JButton" name="botaoIncluirCliente">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Include"/>
+                <Property name="text" type="java.lang.String" value="Create"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoIncluirClienteActionPerformed"/>
@@ -353,9 +348,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoDeletarClienteActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="campoBuscaClientes">
-            </Component>
-            <Component class="javax.swing.JComboBox" name="cbOrganiza">
+            <Component class="javax.swing.JComboBox" name="sortSelector">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="3">
@@ -365,11 +358,11 @@
                   </StringArray>
                 </Property>
                 <Property name="selectedItem" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection component="cbOrganiza" type="bean"/>
+                  <Connection component="sortSelector" type="bean"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbOrganizaActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sortSelectorActionPerformed"/>
               </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -378,11 +371,6 @@
             <Component class="javax.swing.JLabel" name="labelOrganizar">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Sort by"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="labelBuscaClientes">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Buscar:"/>
               </Properties>
             </Component>
           </SubComponents>

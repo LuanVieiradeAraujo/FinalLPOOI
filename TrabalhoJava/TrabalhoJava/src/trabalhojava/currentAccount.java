@@ -53,6 +53,7 @@ public class currentAccount extends Account{
     
     public void setInitialDeposit(double newInitialDeposit){
         this.initialDeposit = newInitialDeposit;
+        this.deposits(this.initialDeposit);
     }        
 
 }
