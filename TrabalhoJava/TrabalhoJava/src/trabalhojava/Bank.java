@@ -4,6 +4,7 @@ package trabalhojava;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
+import java.util.Iterator;
 import javax.swing.table.DefaultTableModel;
 
 public class Bank {
@@ -20,24 +21,53 @@ public class Bank {
         customerTable.addRow(row);
     }
     
-    static void removeCustomer(Customer customer){
+    static void removeCustomer(String rg){
         
-            customer.print();
-
-            int index = arrCustomers.indexOf(customer);
-            if(index == -1)
-                System.out.println("ArrayList does not contain Customer");
-            else
+        for(Customer customer : arrCustomers){
+            if(customer.getRg().equals(rg)){
                 arrCustomers.remove(customer);
-            
-            int numRows = principalScreen.tabelaClientes.getSelectedRows().length;
-            for(int i=0; i<numRows ; i++ ) {
-                customerTable.removeRow(principalScreen.tabelaClientes.getSelectedRow());
             }
         }
+        int numRows = principalScreen.tabelaClientes.getSelectedRows().length;
+        for(int i=0; i<numRows ; i++ ) {
+            customerTable.removeRow(principalScreen.tabelaClientes.getSelectedRow());
+        }
+    }
     
-    void editCustomer(Customer customer){
-
+    static void editCustomer(Customer customer){
+        
+        int index = 0;
+        
+        customer.print();
+        
+        for(Customer customerInstance : arrCustomers){
+            if(customerInstance.getRg().equals(customer.getRg())){
+                break;
+            }
+            index++;
+        }
+        
+        System.out.println("Index: " + index);
+        
+        arrCustomers.get(index).setName(customer.getName());
+        arrCustomers.get(index).setSurname(customer.getSurname());
+        arrCustomers.get(index).setAddress(customer.getAddress());
+        arrCustomers.get(index).setRg(customer.getRg());
+        arrCustomers.get(index).setCpf(customer.getCpf());
+        arrCustomers.get(index).setSalary(customer.getSalary());
+                
+        int selectedRow = principalScreen.tabelaClientes.getSelectedRow();
+        
+        System.out.println(selectedRow);
+        
+        customerTable.setValueAt(customer.getName(), selectedRow, 0);
+        customerTable.setValueAt(customer.getSurname(), selectedRow, 1);
+        customerTable.setValueAt(customer.getAddress(), selectedRow, 2);
+        customerTable.setValueAt(customer.getRg(), selectedRow, 3);
+        customerTable.setValueAt(customer.getCpf(), selectedRow, 4);
+        customerTable.setValueAt(customer.getSalary(), selectedRow, 5);
+        
+        
     }
 
     ArrayList<Customer> getCustomers(){

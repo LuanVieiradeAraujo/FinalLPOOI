@@ -498,29 +498,37 @@ public class principalScreen extends javax.swing.JFrame {
         DefaultTableModel customerTable = (DefaultTableModel) principalScreen.tabelaClientes.getModel();
             
         int row = principalScreen.tabelaClientes.getSelectedRow();
-
-        System.out.println(row);
         
         if(row != -1){
-            String name = customerTable.getValueAt(row, 0).toString();
-            String surname = customerTable.getValueAt(row, 1).toString();
-            String address = customerTable.getValueAt(row, 2).toString();
-            String cpf = customerTable.getValueAt(row, 3).toString();
             String rg = customerTable.getValueAt(row, 4).toString();
-            String salary = customerTable.getValueAt(row, 5).toString();
-            
-            Double DoubleSalary = Double.parseDouble(salary);
-        
-            Customer customer = new Customer(name, surname, address, cpf, rg, DoubleSalary);
-        
-            Bank.removeCustomer(customer);
+
+            Bank.removeCustomer(rg);
         }
     }//GEN-LAST:event_botaoDeletarClienteActionPerformed
 
     private void botaoAtualizarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAtualizarClienteActionPerformed
         editCustomerFrame editCustomer = new editCustomerFrame();
-        editCustomer.setVisible(true);
         
+        DefaultTableModel customerTable = (DefaultTableModel) principalScreen.tabelaClientes.getModel();
+            
+        int row = principalScreen.tabelaClientes.getSelectedRow();
+        
+        if(row != -1){
+            String name = customerTable.getValueAt(row, 0).toString();
+            String surname = customerTable.getValueAt(row, 1).toString();
+            String address = customerTable.getValueAt(row, 2).toString();
+            String rg = customerTable.getValueAt(row, 3).toString();
+            String cpf = customerTable.getValueAt(row, 4).toString();
+            String salary = customerTable.getValueAt(row, 5).toString();
+            
+            editCustomer.nameEdit.setText(name);
+            editCustomer.surnameEdit.setText(surname);
+            editCustomer.addressEdit.setText(address);
+            editCustomer.rgEdit.setText(rg);
+            editCustomer.cpfEdit.setText(cpf);
+            editCustomer.salaryEdit.setText(salary);
+            editCustomer.setVisible(true);
+        }
     }//GEN-LAST:event_botaoAtualizarClienteActionPerformed
 
     /**
