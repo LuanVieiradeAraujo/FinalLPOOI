@@ -500,8 +500,10 @@ public class principalScreen extends javax.swing.JFrame {
         int row = principalScreen.tabelaClientes.getSelectedRow();
         
         if(row != -1){
-            String rg = customerTable.getValueAt(row, 4).toString();
-
+            String rg = customerTable.getValueAt(row, 3).toString();
+            
+            System.out.println("RG Deletar: " + rg);
+            
             Bank.removeCustomer(rg);
         }
     }//GEN-LAST:event_botaoDeletarClienteActionPerformed

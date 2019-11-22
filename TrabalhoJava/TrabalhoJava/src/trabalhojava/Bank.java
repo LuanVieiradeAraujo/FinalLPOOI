@@ -22,7 +22,6 @@ public class Bank {
     }
     
     static void removeCustomer(String rg){
-        
         for(Customer customer : arrCustomers){
             if(customer.getRg().equals(rg)){
                 arrCustomers.remove(customer);
@@ -36,15 +35,13 @@ public class Bank {
     
     static void editCustomer(Customer customer){
         
-        int index = 0;
-        
-        customer.print();
+        int index = -1;
         
         for(Customer customerInstance : arrCustomers){
+            index++;            
             if(customerInstance.getRg().equals(customer.getRg())){
                 break;
             }
-            index++;
         }
         
         System.out.println("Index: " + index);
@@ -66,7 +63,6 @@ public class Bank {
         customerTable.setValueAt(customer.getRg(), selectedRow, 3);
         customerTable.setValueAt(customer.getCpf(), selectedRow, 4);
         customerTable.setValueAt(customer.getSalary(), selectedRow, 5);
-        
         
     }
 
