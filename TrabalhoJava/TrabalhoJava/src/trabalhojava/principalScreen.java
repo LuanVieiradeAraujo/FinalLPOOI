@@ -209,7 +209,7 @@ public class principalScreen extends javax.swing.JFrame {
             new Object [][] {
             },
             new String [] {
-                "AccountNum","Name", "Surname", "RG", "CPF", "Address", "Salary"
+                "Name", "Surname", "RG", "CPF", "Address", "Salary"
             }
         ) {
             Class[] types = new Class [] {
@@ -495,7 +495,7 @@ public class principalScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoIncluirClienteActionPerformed
 
     private void botaoDeletarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoDeletarClienteActionPerformed
-        Bank.removeCustomer();
+        // Bank.removeCustomer();
     }//GEN-LAST:event_botaoDeletarClienteActionPerformed
 
     private void botaoAtualizarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAtualizarClienteActionPerformed
