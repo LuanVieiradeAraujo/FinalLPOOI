@@ -12,10 +12,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
-/**
- *
- * @author noh4n
- */
+
 public class principalScreen extends javax.swing.JFrame {
 
     /**
@@ -58,6 +55,8 @@ public class principalScreen extends javax.swing.JFrame {
         botaoAtualizarCliente = new javax.swing.JButton();
         botaoDeletarCliente = new javax.swing.JButton();
         sortSelector = new javax.swing.JComboBox<String>();
+        campoBuscaClientes = new javax.swing.JTextField();
+        cbOrganiza = new javax.swing.JComboBox<>();
         labelOrganizar = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -255,6 +254,9 @@ public class principalScreen extends javax.swing.JFrame {
         sortSelector.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Name", "Salary", "Surname" }));
         sortSelector.setSelectedItem(sortSelector);
         sortSelector.addActionListener(new java.awt.event.ActionListener() {
+        cbOrganiza.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Name", "Salary", "Surname" }));
+        cbOrganiza.setSelectedItem(cbOrganiza);
+        cbOrganiza.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sortSelectorActionPerformed(evt);
             }
@@ -425,6 +427,11 @@ public class principalScreen extends javax.swing.JFrame {
         }
 
         botaoNovaConta.setText("New Account");
+        botaoNovaConta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoNovaContaActionPerformed(evt);
+            }
+        });
 
         botaoOperarConta.setText("Operate Account");
 
@@ -550,6 +557,11 @@ public class principalScreen extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_botaoAtualizarClienteActionPerformed
 
+    private void botaoNovaContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoNovaContaActionPerformed
+        addAccountFrame addAccount = new addAccountFrame();
+        addAccount.setVisible(true);
+    }//GEN-LAST:event_botaoNovaContaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -613,13 +625,18 @@ public class principalScreen extends javax.swing.JFrame {
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+
     private javax.swing.JTabbedPane jTabbedPane1;
+
+    public static javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JLabel labelBuscaClientes;
+
     private javax.swing.JLabel labelBuscaContas;
     private javax.swing.JLabel labelOrganizar;
     private java.awt.PopupMenu popupMenu1;
     private java.awt.PopupMenu popupMenu2;
     private javax.swing.JComboBox<String> sortSelector;
     public static javax.swing.JTable tabelaClientes;
-    private javax.swing.JTable tabelaContas;
+    public static javax.swing.JTable tabelaContas;
     // End of variables declaration//GEN-END:variables
 }
